@@ -12,37 +12,45 @@ class Header extends Component {
     };
   }
 
-  toggleMode = () => {
+  // toggleMode = () => {
+  //   this.setState((prevState) => ({
+  //     isToggle: !prevState.isToggle,
+  //   }));
+  // };
+
+  // darkMode = () => {
+  //   this.setState((prevState) => ({
+  //     isDarkMode: !prevState.isDarkMode,
+  //   }));
+  // };
+  btnToggle = () => {
     this.setState((prevState) => ({
       isToggle: !prevState.isToggle,
     }));
   };
 
-  darkMode = () => {
-    this.setState((prevState) => ({
-      isDarkMode: !prevState.isDarkMode,
-    }));
-  };
-
   render() {
-    const { isToggle, isDarkMode } = this.state;
+    function darkMode() {
+      document.body.classList.toggle("dark");
+    }
+    const { isToggle } = this.state;
+
     return (
-      <div>
         <header>
-          <div className={`container ${isDarkMode ? "dark" : ""}`}>
+          <div className="container">
             <nav className="navbar">
               <div className="nav_logo">
                 <a href="#">
                   <img src={logo} alt="logo" />
                 </a>
               </div>
-              <div className={`nav_links ${isToggle ? "active" : ""}`}>
+              <div className="nav_links">
                 <ul>
                   <li>
-                    <a href="#" onClick={this.toggleMode}>
+                    <a id="btnMenu" href="#" onClick={this.btnToggle}>
                       Продукция
                     </a>
-                    <div className="drop">
+                    <div id="menu" className={isToggle ? "drop" : ""}>
                       <a href="">Ламинатные тубы</a>
                       <a href="">Экструзионные тубы</a>
                       <a href="">Другая упаковка</a>
@@ -75,7 +83,7 @@ class Header extends Component {
                 </ul>
               </div>
               <div className="action">
-                <button onClick={this.darkMode} className="dark">
+                <button onClick={darkMode} className="dark">
                   <img src={dark} alt="dark" />
                 </button>
                 <div className="btn_menu">
@@ -85,9 +93,9 @@ class Header extends Component {
                 </div>
               </div>
             </nav>
+
           </div>
         </header>
-      </div>
     );
   }
 }

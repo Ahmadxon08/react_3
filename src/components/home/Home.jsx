@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "./Home.scss";
+
 const media1 = "./assets/img/media1.png";
 const media2 = "./assets/img/media2.png";
 const media3 = "./assets/img/media3.png";
@@ -36,6 +37,7 @@ export class Home extends Component {
               </div>
             </div>
           </div>
+      
         </div>
       </>
     );
