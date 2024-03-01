@@ -6,7 +6,7 @@ import "@splidejs/react-splide/css/skyblue";
 import "@splidejs/react-splide/css/sea-green";
 // or only core styles
 import "@splidejs/react-splide/css/core";
-import React, { Component } from "react";
+import React, {  } from "react";
 
 const imge1='./assets/img/paper1.png';
 const imge2='./assets/img/paper2.png';
@@ -19,10 +19,24 @@ class Splider extends React.Component {
       <div>
         <Splide aria-label="My Favorite Images"  options={ {
     rewind: true,
-    width : 1240,
+    perPage: 1,
+    breakpoints: {
+        1024: {
+          perPage: 2,
+        },
+        768: {
+          perPage: 3,
+        },
+        640: {
+          perPage: 1,
+        },
+        
+    }
+   
+   
   } }>
           <SplideSlide>
-            <img src={imge1} alt="Image 1" />
+            <img src={imge1}  alt="Image 1" />
          
             <img src={imge2} alt="Image 1" />
        
